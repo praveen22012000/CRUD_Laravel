@@ -2,10 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[StudentController::class,'create']);
+Route::post('/store',[StudentController::class,'store']);
+Route::get('list',[StudentController::class,'list']);
+Route::get('edit/{id}',[StudentController::class,'edit']);
+Route::post('update/{id}',[StudentController::class,'update']);
+Route::get('delete/{id}',[StudentController::class,'delete']);
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
